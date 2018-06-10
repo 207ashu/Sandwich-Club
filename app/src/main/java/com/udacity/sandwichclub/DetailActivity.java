@@ -20,7 +20,7 @@ public class DetailActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail);
 
-        ImageView ingredientsIv = findViewById(R.id.image_iv);
+        /*ImageView ingredientsIv = findViewById(R.id.image_iv);
 
         Intent intent = getIntent();
         if (intent == null) {
@@ -48,15 +48,15 @@ public class DetailActivity extends AppCompatActivity {
                 .load(sandwich.getImage())
                 .into(ingredientsIv);
 
-        setTitle(sandwich.getMainName());
+        setTitle(sandwich.getMainName());*/
     }
 
-    private void closeOnError() {
+  /*  private void closeOnError() {
         finish();
         Toast.makeText(this, R.string.detail_error_message, Toast.LENGTH_SHORT).show();
     }
 
     private void populateUI() {
 
-    }
+    }*/
 }
