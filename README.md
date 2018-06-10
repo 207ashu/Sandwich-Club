@@ -2,7 +2,7 @@
 
 ## Project Overview
 In this project, We will complete the **Sandwich Club** app to
-show the details of each sandwich once it is selected.
+show the details of each sandwich once it is selected.This Project is built for Udacity Nanodegree Program.
 
 ## Why this Project
 
