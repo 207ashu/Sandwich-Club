@@ -10,12 +10,11 @@ import java.util.ArrayList;
 
 
 public class JsonUtils {
-
-    public static Sandwich parseSandwichJson(String json) {
-
-        Sandwich item=new Sandwich();
+    public static void parseSandwichJson(String json) {
 
 
+
+Sandwich item;
         try {
             if(json!=null) {
 
@@ -27,25 +26,25 @@ public class JsonUtils {
                 JSONObject name = root.getJSONObject("name");
                 JSONArray ing = root.getJSONArray("ingredients");
                 String mainName = name.getString("mainName");
-                JSONArray alsoKnownAs = root.getJSONArray("alsoKnownAs");
+                JSONArray alsoKnownAs = name.getJSONArray("alsoKnownAs");
 
                 item=new Sandwich(mainName,getListFromArray(alsoKnownAs),placeOfOrigin,desc,imgUrl,getListFromArray(ing));
-/*
-                item.setMainName(mainName);
+
+                item.setMainName(name.getString("mainName"));
                 item.setAlsoKnownAs(getListFromArray(alsoKnownAs));
                 item.setPlaceOfOrigin(placeOfOrigin);
                 item.setDescription(desc);
                 item.setImage(imgUrl);
-                item.setIngredients(getListFromArray(ing));*/
+                item.setIngredients(getListFromArray(ing));
 
-              //  MainActivity.mSandwichList.add(item);
+                MainActivity.mSandwichList.add(item);
 
             }
 
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        return item;
+       // return item;
     }
 
     public static ArrayList<String> getListFromArray(JSONArray array){
