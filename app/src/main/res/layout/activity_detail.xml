@@ -14,7 +14,7 @@
             android:id="@+id/imageView"
             android:layout_width="match_parent"
             android:layout_height="200dp"
-            android:contentDescription="Image of the Sandwich"
+            android:contentDescription="@string/sandwich_picture_content_description"
             android:scaleType="centerCrop"
             android:src="@mipmap/ic_launcher" />
 
@@ -30,7 +30,6 @@
             android:paddingLeft="10dp"
             android:paddingRight="10dp"
             android:paddingTop="5dp"
-            android:text="Bosna"
             android:textColor="@android:color/background_light"
             android:textSize="32sp"
             android:textStyle="bold" />
@@ -63,7 +62,7 @@
             android:layout_marginLeft="35dp"
             android:layout_marginRight="15dp"
             android:layout_marginTop="5dp"
-            android:text="Bosner" />
+            />
 
         <TextView
             android:id="@+id/place_of_origin_label"
@@ -84,7 +83,7 @@
             android:layout_marginLeft="35dp"
             android:layout_marginRight="15dp"
             android:layout_marginTop="5dp"
-            android:text="Austria" />
+            />
 
         <TextView
             android:id="@+id/ingredients_label"
@@ -105,7 +104,7 @@
             android:layout_marginLeft="35dp"
             android:layout_marginRight="15dp"
             android:layout_marginTop="5dp"
-            android:text='White bread\nBratwurst\nOnions\nTomato ketchup\nMustard\nCurry powder' />
+            />
 
         <TextView
             android:id="@+id/description_label"
@@ -126,7 +125,7 @@
             android:layout_marginLeft="35dp"
             android:layout_marginRight="15dp"
             android:layout_marginTop="5dp"
-            android:text="Bosna is a spicy Austrian fast food dish\nsaid to have originated in either Salzburg or Linz. It is now popular all over western Austria and southern Bavaria." />
+            android:text="" />
 
 
     </LinearLayout>
