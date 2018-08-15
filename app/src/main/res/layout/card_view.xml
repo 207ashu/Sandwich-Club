@@ -29,7 +29,7 @@
             android:fontFamily="@font/acme"
             android:gravity="center_vertical"
             android:paddingLeft="15dp"
-            android:text="Ashutosh Singh Tomar"
+            android:text="Ham and Cheese Burger"
             android:textSize="24sp" />
 
     </LinearLayout>
