@@ -1,5 +1,7 @@
 package com.udacity.sandwichclub.model;
 
+import android.util.Log;
+
 import java.util.List;
 
 public class Sandwich {
@@ -18,12 +20,15 @@ public class Sandwich {
     }
 
     public Sandwich(String mainName, List<String> alsoKnownAs, String placeOfOrigin, String description, String image, List<String> ingredients) {
+
         this.mainName = mainName;
         this.alsoKnownAs = alsoKnownAs;
         this.placeOfOrigin = placeOfOrigin;
         this.description = description;
         this.image = image;
         this.ingredients = ingredients;
+
+        Log.i("DATA",this.mainName+"     "+mainName);
     }
 
     public String getMainName() {
