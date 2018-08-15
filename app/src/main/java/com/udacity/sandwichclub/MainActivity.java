@@ -1,13 +1,9 @@
 package com.udacity.sandwichclub;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import com.udacity.sandwichclub.utils.JsonUtils;
 
 
@@ -18,19 +14,36 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity {
 
     public static ArrayList<Sandwich> mSandwichList;
+    RecyclerView recyclerView;
+    SandwichAdapter adapter;
+    LinearLayoutManager layoutManager;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        recyclerView =  (RecyclerView)findViewById(R.id.sandwich_rv);
 
         mSandwichList=new ArrayList<>();
 
-        String[] sandwiches = getResources().getStringArray(R.array.sandwich_names);
+       // String[] sandwiches = getResources().getStringArray(R.array.sandwich_names);
         getArrayData();
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(this,
+
+
+        adapter = new SandwichAdapter(MainActivity.this,mSandwichList);
+        LinearLayoutManager llm = new LinearLayoutManager(this);
+        llm.setOrientation(LinearLayoutManager.VERTICAL);
+        recyclerView.setLayoutManager(llm);
+        recyclerView.setHasFixedSize(true);
+        recyclerView.setAdapter(adapter);
+
+
+
+        /*
+         ArrayAdapter<String> adapter = new ArrayAdapter<>(this,
                 android.R.layout.simple_list_item_1, sandwiches);
 
         // Simplification: Using a ListView instead of a RecyclerView
@@ -41,22 +54,23 @@ public class MainActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
                 launchDetailActivity(position);
             }
-        });
+        });*/
     }
-
-    private void launchDetailActivity(int position) {
+/*
+    public void launchDetailActivity(int position) {
         Intent intent = new Intent(this, DetailActivity.class);
         intent.putExtra(DetailActivity.EXTRA_POSITION, position);
         startActivity(intent);
-    }
+    }*/
 
     private void getArrayData(){
     String[] details = getResources().getStringArray(R.array.sandwich_details);
 
         for(int i=0;i<10;i++){
-            Sandwich sandwich=JsonUtils.parseSandwichJson(details[i]);
-            mSandwichList.add(sandwich);
+            JsonUtils.parseSandwichJson(details[i]);
+
         }
+
     }
 
 }
